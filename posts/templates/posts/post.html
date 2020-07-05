@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Пост пользователя {{ author.get_full_name }}{% endblock %}
+{% block content %}
+
+<main role="main" class="container">
+    <div class="d-flex flex-row">
+        {% include "includes/user_card.html" with author=author post_count=post_count %}
+        <div class="d-flex flex-column w-100">
+            {% include "includes/post_item.html" with post=post %}
+            {% include "includes/comments.html" with items=comments %}
+        </div>
+    </div>
+</main>
+
+{% endblock %}

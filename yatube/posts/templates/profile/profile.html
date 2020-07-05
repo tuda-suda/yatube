@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Профиль пользователя {{ author.get_full_name }}{% endblock %}
+{% block header %}Профиль пользователя {{ author.get_full_name }}{% endblock %}
+{% block content %}
+{% load thumbnail %}
+
+
+<main role="main" class="container">
+    <div class="row">
+        {% include "includes/user_card.html" with author=author post_count=post_count following=following%}
+        <div class="col-md-9">                
+            {% for post in page %}
+                {% include "includes/post_item.html" with author=author post=post %}
+            {% endfor %}
+
+            {% if page.has_other_pages %}
+                {% include "includes/paginator.html" with items=page paginator=paginator %}
+            {% endif %}
+        </div>
+    </div>
+</main>
+
+{% endblock %}
