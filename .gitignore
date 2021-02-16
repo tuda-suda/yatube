@@ -137,3 +137,5 @@ copypr.sh
 .copyignore
 
 admin_cred.txt
+
+.vscode/
